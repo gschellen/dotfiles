@@ -3,8 +3,6 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
-ln -sf "$DOTFILES"/zsh/zshrc "$HOME"/.zshrc
-
 rm -rf "$HOME"/.tmux
 ln -s "$DOTFILES"/tmux/.tmux "$HOME"/.tmux
 ln -sf "$DOTFILES"/tmux/tmux.conf "$HOME"/.tmux.conf
@@ -21,8 +19,12 @@ ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
 # rm -rf "$HOME"/.vale.ini
 # ln -s "$DOTFILES"/.vale.ini "$HOME"/.vale.ini
 
+ln -sf "$DOTFILES"/zsh/.zshrc "$HOME"/.zshrc
+rm -rf "$HOME"/.config/zsh
+ln -s "$DOTFILES"/zsh "$HOME"/.config/zsh
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-vale sync
+# vale sync

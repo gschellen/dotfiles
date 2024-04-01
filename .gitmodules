@@ -13,3 +13,9 @@
 [submodule "tmux/.tmux/plugins/vim-tmux-navigator"]
 	path = tmux/.tmux/plugins/vim-tmux-navigator
 	url = https://git::@github.com/christoomey/vim-tmux-navigator
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/plugins/ohmyzsh"]
+	path = zsh/plugins/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
