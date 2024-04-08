@@ -122,6 +122,9 @@ wk.register({
 wk.register({ ["<leader>gf"] = { '<cmd>lua vim.lsp.buf.format({async = true})<CR>', "Format" }, mode = "v" })
 wk.register({ ["<leader>tr"] = { '<cmd>lua vim.lsp.buf.document_symbol()<CR>', "Document Symbol" }})
 wk.register({ ["<C-Space>"] = { '<cmd>lua vim.lsp.buf.completion()<CR>', "Completion" }, mode = "i" })
+wk.register({ ["<leader>u"] = { ':UndotreeToggle <CR>', "Toggle UndoTree" }})
+
+
 
 -- Debugging
 keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
@@ -143,3 +146,11 @@ keymap.set("n", '<leader>df', '<cmd>Telescope dap frames<cr>')
 keymap.set("n", '<leader>dh', '<cmd>Telescope dap commands<cr>')
 keymap.set("n", '<leader>de', function() require('telescope.builtin').diagnostics({default_text=":E:"}) end)
 
+-- TMux Navigator
+wk.register({
+    ["<c-h>"] = { "<cmd><C-U>TmuxNavigateLeft<cr>"},
+    ["<c-j>"] = { "<cmd><C-U>TmuxNavigateDown<cr>"},
+    ["<c-k>"] = { "<cmd><C-U>TmuxNavigateUp<cr>"},
+    ["<c-l>"] = { "<cmd><C-U>TmuxNavigateRight<cr>"},
+    ["<c-\\>"] = { "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+} )
