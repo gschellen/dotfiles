@@ -10,7 +10,9 @@ return {
     { 'williamboman/mason.nvim' },
     -- https://github.com/williamboman/mason-lspconfig.nvim
     { 'williamboman/mason-lspconfig.nvim' },
-
+    -- Auto-Install LSPs, linters, formatters, debuggers
+    -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
+    { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
     -- Useful status updates for LSP
     -- https://github.com/j-hui/fidget.nvim
     { 'j-hui/fidget.nvim', opts = {} },
@@ -34,6 +36,20 @@ return {
         'quick_lint_js',
         -- 'tsserver', -- requires npm to be installed
         -- 'yamlls', -- requires npm to be installed
+        'pyright' -- python lsp
+      }
+    })
+
+    require('mason-tool-installer').setup({
+      -- install the following lingter, formatters, debuggers automatically
+      ensure_installed = {
+        -- python
+        'black',
+        'debugpy',
+        'flake8',
+        'isort',
+        'mypy',
+        'pylint',
       }
     })
 
