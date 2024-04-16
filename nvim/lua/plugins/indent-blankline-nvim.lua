@@ -1,4 +1,5 @@
 -- Indentation guides
+
 return {
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   "lukas-reineke/indent-blankline.nvim",
@@ -7,7 +8,10 @@ return {
   opts = {
     enabled = true,
     indent = {
-      char = '|',
+      -- char = '|',
     },
   },
+  config = function (_, opts)
+    require('ibl').setup(opts)
+  end
 }
