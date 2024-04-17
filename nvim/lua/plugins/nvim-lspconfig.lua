@@ -41,6 +41,7 @@ return {
     })
 
     require('mason-tool-installer').setup({
+      -- RUN :MasonInstallall after any changes
       -- install the following linters, formatters, debuggers automatically
       ensure_installed = {
         'clang-format',
