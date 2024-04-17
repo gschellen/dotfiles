@@ -36,12 +36,15 @@ return {
         'quick_lint_js',
         -- 'tsserver', -- requires npm to be installed
         -- 'yamlls', -- requires npm to be installed
+        'clangd', -- c++ language
       }
     })
 
     require('mason-tool-installer').setup({
-      -- install the following lingter, formatters, debuggers automatically
+      -- install the following linters, formatters, debuggers automatically
       ensure_installed = {
+        'clang-format',
+        'codelldb',
       }
     })
 
@@ -60,6 +63,14 @@ return {
         })
       end
     })
+    -- seperate config for clangd for a bug
+    lspconfig.clangd.setup {
+      on_attach = function(client, bufnr)
+        client.server_capabilities.signatureHelpProvider = false
+        lspconfig.on_attach(client, bufnr)
+      end,
+      capabilities = lsp_capabilities,
+    }
 
     -- Lua LSP settings
     lspconfig.lua_ls.setup {
