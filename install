@@ -7,9 +7,9 @@ rm -rf "$HOME"/.tmux
 ln -s "$DOTFILES"/tmux/.tmux "$HOME"/.tmux
 ln -sf "$DOTFILES"/tmux/tmux.conf "$HOME"/.tmux.conf
 
-# rm -rf "$HOME"/.config/wezterm
-# ln -s "$DOTFILES"/wezterm "$HOME"/.config/wezterm
-
+if [ ! -f "$HOME"/.config]; then
+  mkdir "$HOME/.config"
+fi
 rm -rf "$HOME"/.config/nvim
 ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
 
@@ -20,6 +20,7 @@ ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
 # ln -s "$DOTFILES"/.vale.ini "$HOME"/.vale.ini
 
 ln -sf "$DOTFILES"/zsh/.zshrc "$HOME"/.zshrc
+ln -sf "$DOTFILES"/zsh/.p10k.zsh "$HOME"/.p10k.zsh
 rm -rf "$HOME"/.config/zsh
 ln -s "$DOTFILES"/zsh "$HOME"/.config/zsh
 
