@@ -5,7 +5,7 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 rm -rf "$HOME"/.tmux
 ln -s "$DOTFILES"/tmux/.tmux "$HOME"/.tmux
-ln -sf "$DOTFILES"/tmux/tmux.conf "$HOME"/.tmux.conf
+ln -sf "$DOTFILES"/tmux/.tmux.conf "$HOME"/.tmux.conf
 
 if [ ! -d "$HOME"/.config ]; then
   mkdir "$HOME"/.config
