@@ -13,9 +13,6 @@ fi
 rm -rf "$HOME"/.config/nvim
 ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
 
-# rm -rf "$HOME"/.config/lazygit
-# ln -s "$DOTFILES"/lazygit "$HOME"/.config/lazygit
-#
 # rm -rf "$HOME"/.vale.ini
 # ln -s "$DOTFILES"/.vale.ini "$HOME"/.vale.ini
 
@@ -24,9 +21,8 @@ ln -sf "$DOTFILES"/zsh/.p10k.zsh "$HOME"/.p10k.zsh
 rm -rf "$HOME"/.config/zsh
 ln -s "$DOTFILES"/zsh "$HOME"/.config/zsh
 
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-	KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
+rm -rf "$HOME"/.oh-my-zsh 
+KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sh -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 # vale sync
