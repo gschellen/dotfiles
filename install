@@ -8,7 +8,7 @@ ln -s "$DOTFILES"/tmux/.tmux "$HOME"/.tmux
 ln -sf "$DOTFILES"/tmux/tmux.conf "$HOME"/.tmux.conf
 
 if [ ! -f "$HOME"/.config]; then
-  mkdir "$HOME/.config"
+  mkdir "$HOME"/.config
 fi
 rm -rf "$HOME"/.config/nvim
 ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
