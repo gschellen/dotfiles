@@ -112,6 +112,6 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 PATH=/opt/nvim-linux64/bin:$PATH
-PATH=~/MyBin:$PATH
+PATH=~/bin:$PATH
 
 # alias ls="colorls" 
