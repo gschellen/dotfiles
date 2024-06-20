@@ -116,6 +116,7 @@ wk.register({
     l = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
     p = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', "Go to Previous" },
     n = { '<cmd>lua vim.diagnostic.goto_next()<CR>', "Go to Next" },
+    h = { ':ClangdSwitchSourceHeader <CR>', "Header <-> Source" },
   },
 }, { prefix = "<leader>" })
 
