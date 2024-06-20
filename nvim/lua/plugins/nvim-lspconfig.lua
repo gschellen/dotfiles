@@ -64,14 +64,6 @@ return {
         })
       end
     })
-    -- seperate config for clangd for a bug
-    lspconfig.clangd.setup {
-      on_attach = function(client, bufnr)
-        client.server_capabilities.signatureHelpProvider = false
-        lspconfig.on_attach(client, bufnr)
-      end,
-      capabilities = lsp_capabilities,
-    }
 
     -- Lua LSP settings
     lspconfig.lua_ls.setup {
