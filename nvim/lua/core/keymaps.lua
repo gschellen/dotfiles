@@ -1,31 +1,76 @@
 -- Set leader key to space
 vim.g.mapleader = " "
 
-local wk = require("which-key")
-
 local keymap = vim.keymap
 
--- keymap.set('n', '<leader>fm', function() require('telescope.builtin').treesitter({default_text=":method:"}) end)
+local wk = require("which-key")
 
--- Telescope
-wk.register({
-  f = {
-    name = "Telescope",
-    f = { require('telescope.builtin').find_files, "Find File" },
-    g = { require('telescope.builtin').live_grep, "Live Grep" },
-    b = { require('telescope.builtin').buffers, "Buffers"},
-    h = { require('telescope.builtin').help_tags, "Help Tags"},
-    s = { require('telescope.builtin').current_buffer_fuzzy_find, "Current Buffer Fuzzy Find"},
-    o = { require('telescope.builtin').lsp_document_symbols, "LSP Document Symbol"},
-    i = { require('telescope.builtin').lsp_incoming_calls, "LSP Incoming Calls"},
-  },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>ww", ":w<CR>", desc = "Save File"},
 
+  { "<leader>f", group = "Telescope" },
+  { "<leader>ff", require('telescope.builtin').find_files, desc = "Find File" },
+  { "<leader>fg", require('telescope.builtin').live_grep, desc = "Live Grep" },
+  { "<leader>fb", require('telescope.builtin').buffers, desc = "Buffers"},
+  { "<leader>fh", require('telescope.builtin').help_tags, desc = "Help Tags"},
+  { "<leader>fs", require('telescope.builtin').current_buffer_fuzzy_find, desc = "Current Buffer Fuzzy Find"},
+  { "<leader>fo", require('telescope.builtin').lsp_document_symbols, desc = "LSP Document Symbol"},
+  { "<leader>fi", require('telescope.builtin').lsp_incoming_calls, desc = "LSP Incoming Calls"},
 
--- General keymaps
-wk.register({
-  ["<leader>ww"] = { ":w<CR>", "Save File" },
-  -- ["gu"] = { ":!open <c-r><c-a><CR>", "Go URL" },
+  { "<leader>q", group = "QuickFix" },
+  { "<leader>qo", ":copen<CR>", desc = "Open QuickFix List" },
+  { "<leader>qf", ":cfirst<CR>", desc = "Go to First QuickFix Item" },
+  { "<leader>qn", ":cnext<CR>" , desc = "Go to Next Quickfix Item" },
+  { "<leader>qp", ":cprev<CR>" , desc = "Go to Previous Quickfix Item" },
+  { "<leader>ql", ":clast<CR>" , desc = "Go to Last Quickfix Item" },
+  { "<leader>qc", ":cclose<CR>", desc = "Close Quickfix List" },
+
+  { "<leader>e", group = "Nvim-tree" },
+  { "<leader>ee", ":nvimtreetoggle<cr>", desc = "toggle file explorer" },
+  { "<leader>er", ":nvimtreefocus<cr>", desc = "focus file explorer" },
+  { "<leader>ef", ":nvimtreefindfile<cr>", desc = "find file in explorer" },
+
+  { "<leader>gb", ":GitBlameToggle<CR>", desc = "Git Blame Toggle" },
+
+  { "<leader>h", group = "Harpoon" },
+  { "<leader>ha", require("harpoon.mark").add_file, desc = "Add File" },
+  { "<leader>hh", require("harpoon.ui").toggle_quick_menu, desc = "Toggle Menu"},
+  { "<leader>h1", function() require("harpoon.ui").nav_file(1) end, desc = "Nav File 1" },
+  { "<leader>h2", function() require("harpoon.ui").nav_file(2) end, desc = "Nav File 2" },
+  { "<leader>h3", function() require("harpoon.ui").nav_file(3) end, desc = "Nav File 3" },
+  { "<leader>h4", function() require("harpoon.ui").nav_file(4) end, desc = "Nav File 4" },
+  { "<leader>h5", function() require("harpoon.ui").nav_file(5) end, desc = "Nav File 5" },
+  { "<leader>h6", function() require("harpoon.ui").nav_file(6) end, desc = "Nav File 6" },
+  { "<leader>h7", function() require("harpoon.ui").nav_file(7) end, desc = "Nav File 7" },
+  { "<leader>h8", function() require("harpoon.ui").nav_file(8) end, desc = "Nav File 8" },
+  { "<leader>h9", function() require("harpoon.ui").nav_file(9) end, desc = "Nav File 9" },
+
+  { "<leader>g", group = "LSP" },
+  { "<leader>gg", '<cmd>lua vim.lsp.buf.hover()<CR>', desc = "Hover" },
+  { "<leader>gd", '<cmd>lua vim.lsp.buf.definition()<CR>', desc = "Definition" },
+  { "<leader>gD", '<cmd>lua vim.lsp.buf.declaration()<CR>', desc = "Declaration" },
+  { "<leader>gi", '<cmd>lua vim.lsp.buf.implementation()<CR>', desc = "Implementation" },
+  { "<leader>gt", '<cmd>lua vim.lsp.buf.type_definition()<CR>', desc = "Type Definition" },
+  { "<leader>gr", '<cmd>lua vim.lsp.buf.references()<CR>', desc = "References" },
+  { "<leader>gs", '<cmd>lua vim.lsp.buf.signature_help()<CR>', desc = "Signature Help" },
+  { "<leader>gR", '<cmd>lua vim.lsp.buf.rename()<CR>', desc = "Rename" },
+  { "<leader>gf", '<cmd>lua vim.lsp.buf.format({async = true})<CR>', desc = "Format" },
+  { "<leader>ga", '<cmd>lua vim.lsp.buf.code_action()<CR>', desc = "Code Action" },
+  { "<leader>gl", '<cmd>lua vim.diagnostic.open_float()<CR>', desc = "Open Float" },
+  { "<leader>gp", '<cmd>lua vim.diagnostic.goto_prev()<CR>', desc = "Go to Previous" },
+  { "<leader>gn", '<cmd>lua vim.diagnostic.goto_next()<CR>', desc = "Go to Next" },
+  { "<leader>gh", ':ClangdSwitchSourceHeader <CR>', desc = "Header <-> Source" },
+
+  { "<leader>gf", '<cmd>lua vim.lsp.buf.format({async = true})<CR>', desc = "Format", mode = "v" },
+  { "<leader>tr", '<cmd>lua vim.lsp.buf.document_symbol()<CR>', desc = "Document Symbol" },
+  { "<C-Space>", '<cmd>lua vim.lsp.buf.completion()<CR>', desc = "Completion", mode = "i" },
+  { "<leader>u", ':UndotreeToggle <CR>', desc = "Toggle UndoTree" },
+
+  -- TMux Navigator
+  { "<c-h>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav left" },
+  { "<c-j>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav down" },
+  { "<c-k>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav up" },
+  { "<c-l>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav right" },
 })
 
 -- Split window management
@@ -51,80 +96,11 @@ keymap.set("n", "<leader>ck", ":diffget 3<CR>") -- get diff from right (remote) 
 keymap.set("n", "<leader>cn", "]c") -- next diff hunk
 keymap.set("n", "<leader>cp", "[c") -- previous diff hunk
 
--- Quickfix keymaps
-wk.register({
-  q = {
-    name = "QuickFix",
-    o = { ":copen<CR>", "Open QuickFix List" },
-    f = { ":cfirst<CR>", "Go to First QuickFix Item" },
-    n = { ":cnext<CR>" , "Go to Next Quickfix Item" },
-    p = { ":cprev<CR>" , "Go to Previous Quickfix Item" },
-    l = { ":clast<CR>" , "Go to Last Quickfix Item" },
-    c = { ":cclose<CR>", "Close Quickfix List" },
-  },
-}, { prefix = "<leader>" })
-
 -- Vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle maximize tab
 
--- Nvim-tree
-wk.register({
-  e = {
-    name = "Nvim-tree",
-    e = { ":NvimTreeToggle<CR>", "Toggle File Explorer" },
-    r = { ":NvimTreeFocus<CR>", "Focus File Explorer" },
-    f = { ":NvimTreeFindFile<CR>", "Find File in Explorer" },
-  },
-}, { prefix = "<leader>" })
-
--- Git-blame
-wk.register({ ["<leader>gb"] = { ":GitBlameToggle<CR>", "Git Blame Toggle" } })
-
--- Harpoon
-wk.register({
-    ["<leader>h"] = { name = "+Harpoon" },
-    ["<leader>ha"] = { require("harpoon.mark").add_file, "Add File" },
-    ["<leader>hh"] = { require("harpoon.ui").toggle_quick_menu, "Toggle Menu"},
-    ["<leader>h1"] = { function() require("harpoon.ui").nav_file(1) end, "Nav File 1" },
-    ["<leader>h2"] = { function() require("harpoon.ui").nav_file(2) end, "Nav File 2" },
-    ["<leader>h3"] = { function() require("harpoon.ui").nav_file(3) end, "Nav File 3" },
-    ["<leader>h4"] = { function() require("harpoon.ui").nav_file(4) end, "Nav File 4" },
-    ["<leader>h5"] = { function() require("harpoon.ui").nav_file(5) end, "Nav File 5" },
-    ["<leader>h6"] = { function() require("harpoon.ui").nav_file(6) end, "Nav File 6" },
-    ["<leader>h7"] = { function() require("harpoon.ui").nav_file(7) end, "Nav File 7" },
-    ["<leader>h8"] = { function() require("harpoon.ui").nav_file(8) end, "Nav File 8" },
-    ["<leader>h9"] = { function() require("harpoon.ui").nav_file(9) end, "Nav File 9" },
-} )
-
 -- Vim REST Console
 keymap.set("n", "<leader>xr", ":call VrcQuery()<CR>") -- Run REST query
-
--- LSP
-wk.register({
-  g = {
-    name = "LSP",
-    g = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover" },
-    d = { '<cmd>lua vim.lsp.buf.definition()<CR>', "Definition" },
-    D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "Declaration" },
-    i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', "Implementation" },
-    t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', "Type Definition" },
-    r = { '<cmd>lua vim.lsp.buf.references()<CR>', "References" },
-    s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help" },
-    R = { '<cmd>lua vim.lsp.buf.rename()<CR>', "Rename" },
-    f = { '<cmd>lua vim.lsp.buf.format({async = true})<CR>', "Format" },
-    a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', "Code Action" },
-    l = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
-    p = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', "Go to Previous" },
-    n = { '<cmd>lua vim.diagnostic.goto_next()<CR>', "Go to Next" },
-  },
-}, { prefix = "<leader>" })
-
-wk.register({ ["<leader>gf"] = { '<cmd>lua vim.lsp.buf.format({async = true})<CR>', "Format" }, mode = "v" })
-wk.register({ ["<leader>tr"] = { '<cmd>lua vim.lsp.buf.document_symbol()<CR>', "Document Symbol" }})
-wk.register({ ["<C-Space>"] = { '<cmd>lua vim.lsp.buf.completion()<CR>', "Completion" }, mode = "i" })
-wk.register({ ["<leader>u"] = { ':UndotreeToggle <CR>', "Toggle UndoTree" }})
-
-
 
 -- Debugging
 keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
@@ -146,11 +122,3 @@ keymap.set("n", '<leader>df', '<cmd>Telescope dap frames<cr>')
 keymap.set("n", '<leader>dh', '<cmd>Telescope dap commands<cr>')
 keymap.set("n", '<leader>de', function() require('telescope.builtin').diagnostics({default_text=":E:"}) end)
 
--- TMux Navigator
-wk.register({
-    ["<c-h>"] = { "<cmd><C-U>TmuxNavigateLeft<cr>"},
-    ["<c-j>"] = { "<cmd><C-U>TmuxNavigateDown<cr>"},
-    ["<c-k>"] = { "<cmd><C-U>TmuxNavigateUp<cr>"},
-    ["<c-l>"] = { "<cmd><C-U>TmuxNavigateRight<cr>"},
-    ["<c-\\>"] = { "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-} )
