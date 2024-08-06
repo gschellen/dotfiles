@@ -135,7 +135,19 @@ return {
   --   -- Replace this with your scheme-specific settings or remove to use the defaults
     -- transparent = true,
     flavour = "mocha", -- "latte, frappe, macchiato, mocha"
+    transparent_background = true,
+    -- dim_inactive = { enabled = true, shade = "dark", percentage = 0.01, },
+    styles = {
+      comments = { "italic" },
+    },
+    default_integrations = true,
+    integrations = {
+      gitsigns = true,
+      nvimtree = true,
+      treesitter = true,
+    },
   },
+
   config = function(_, opts)
     require('catppuccin').setup(opts) -- Replace this with your favorite colorscheme
     vim.cmd("colorscheme catppuccin") -- Replace this with your favorite colorscheme
