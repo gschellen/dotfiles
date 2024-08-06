@@ -26,9 +26,9 @@ wk.add({
   { "<leader>qc", ":cclose<CR>", desc = "Close Quickfix List" },
 
   { "<leader>e", group = "Nvim-tree" },
-  { "<leader>ee", ":nvimtreetoggle<cr>", desc = "toggle file explorer" },
-  { "<leader>er", ":nvimtreefocus<cr>", desc = "focus file explorer" },
-  { "<leader>ef", ":nvimtreefindfile<cr>", desc = "find file in explorer" },
+  { "<leader>ee", ":NvimTreeToggle<cr>", desc = "Toggle file explorer" },
+  { "<leader>er", ":NvimTreeFocus<cr>", desc = "Focus file explorer" },
+  { "<leader>ef", ":NvimTreeFindFile<cr>", desc = "Find file in explorer" },
 
   { "<leader>gb", ":GitBlameToggle<CR>", desc = "Git Blame Toggle" },
 
