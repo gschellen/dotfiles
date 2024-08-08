@@ -71,6 +71,11 @@ wk.add({
   { "<c-j>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav down" },
   { "<c-k>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav up" },
   { "<c-l>", '<cmd><C-U>TmuxNavigateLeft<cr>', desc = "Nav right" },
+
+  { "<leader>n", group = "Aerial" },
+  { "<leader>nt", ':AerialToggle <CR>', desc = "Aerial toggle" },
+  { "<leader>nn", ':AerialNext <CR>', desc = "Aerial next" },
+  { "<leader>np", ':AerialPrev <CR>', desc = "Aerial previous" },
 })
 
 -- Split window management
