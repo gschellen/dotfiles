@@ -36,6 +36,20 @@ return {
         'quick_lint_js',
         -- 'tsserver', -- requires npm to be installed
         -- 'yamlls', -- requires npm to be installed
+        'pyright' -- python lsp
+      }
+    })
+
+    require('mason-tool-installer').setup({
+      -- install the following lingter, formatters, debuggers automatically
+      ensure_installed = {
+        -- python
+        'black',
+        'debugpy',
+        'flake8',
+        'isort',
+        'mypy',
+        'pylint',
       }
     })
 
