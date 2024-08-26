@@ -50,12 +50,16 @@ return {
         'isort',
         'mypy',
         'pylint',
+        'clangd', -- c++ language
       }
     })
 
     require('mason-tool-installer').setup({
-      -- install the following lingter, formatters, debuggers automatically
+      -- RUN :MasonInstallall after any changes
+      -- install the following linters, formatters, debuggers automatically
       ensure_installed = {
+        'clang-format',
+        'codelldb',
       }
     })
 

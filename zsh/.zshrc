@@ -113,6 +113,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 PATH=/opt/nvim-linux64/bin:$PATH
 PATH=~/bin:$PATH
+PATH=/APP/bin:$PATH
 
 # alias ls="colorls" 
 # we always want to run tmux with UNICODE available tag
