@@ -36,7 +36,8 @@ return {
         'quick_lint_js',
         -- 'tsserver', -- requires npm to be installed
         -- 'yamlls', -- requires npm to be installed
-        'pyright' -- python lsp
+        'pyright', -- python lspconfig
+        'clangd', -- c++ language
       }
     })
 
@@ -50,14 +51,6 @@ return {
         'isort',
         'mypy',
         'pylint',
-        'clangd', -- c++ language
-      }
-    })
-
-    require('mason-tool-installer').setup({
-      -- RUN :MasonInstallall after any changes
-      -- install the following linters, formatters, debuggers automatically
-      ensure_installed = {
         'clang-format',
         'codelldb',
       }
