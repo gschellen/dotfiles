@@ -7,6 +7,7 @@ local wk = require("which-key")
 
 wk.add({
   { "<leader>ww", ":w<CR>", desc = "Save File"},
+  { "<leader>wr", ":set wrap!<CR>", desc = "Toggle Word Wrap"},
 
   { "<leader>f", group = "Telescope" },
   { "<leader>ff", require('telescope.builtin').find_files, desc = "Find File" },
