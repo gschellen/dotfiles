@@ -1,5 +1,6 @@
 return {
   'stevearc/oil.nvim',
+  event = 'VeryLazy',
   opts = {},
   -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
