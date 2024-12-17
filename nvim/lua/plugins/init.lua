@@ -23,27 +23,5 @@ return {
       },
     },
   },
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   highlight_focused_file = true,
-  --   opts = function(_, conf)
-  --     conf.update_focused_file = {
-  --       enable = true,
-  --       update_root = true
-  --     }
-  --     return conf
-  --   end,
-  -- },
-  -- require("nvim-tree").setup({
-  --   update_focused_file = { enable = true },
-  -- })
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+
 }

@@ -83,10 +83,10 @@ return
         "mfussenegger/nvim-dap",
       },
       opts = {
-        ensure_installed = {
-          "codelldb",
-          "python",
-        },
+        -- ensure_installed = {
+        --   "codelldb",
+        --   "python",
+        -- },
         handlers = {}
       },
     },
@@ -129,14 +129,5 @@ return
     {
       "jose-elias-alvarez/null-ls.nvim",
       event = "VeryLazy",
-    },
-    {
-      "williamboman/mason.nvim",
-      opts = {
-        ensure_installed = {
-          "clang-format",
-          "codelldb",
-        }
-      }
     },
   }

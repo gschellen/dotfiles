@@ -22,4 +22,17 @@ M.ui = {
   telescope = { style = "bordered" },
 }
 
+M.mason = {
+  cmd = true,
+  automatic_install = true,
+  pkgs = {
+    --servers,
+    "clangd",
+    -- dap
+    "codelldb",
+    "debugpy",
+    -- linters
+    "pylint",
+  }
+}
 return M
