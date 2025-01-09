@@ -7,6 +7,7 @@ local util = require("config.util")
 
 map("n", "<leader>ww", "<cmd>w<cr>", { desc = "save file" })
 map("i", "jk", "<ESC>l", { desc = "exit insert mode" })
+map("v", "/", "<ESC>/\\%V", { desc = "search within visual selection" })
 
 if util.tmux_present then
   map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Window left" })

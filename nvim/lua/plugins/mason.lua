@@ -7,6 +7,7 @@ return {
       "codelldb",
       "cmakelang",
       "cmakelint",
+      "clang-format",
     } },
   },
 }
