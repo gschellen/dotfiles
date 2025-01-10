@@ -4,10 +4,21 @@
 
 local map = vim.keymap.set
 local util = require("config.util")
+local incline = require("incline")
 
 map("n", "<leader>ww", "<cmd>w<cr>", { desc = "save file" })
 map("i", "jk", "<ESC>l", { desc = "exit insert mode" })
 map("v", "/", "<ESC>/\\%V", { desc = "search within visual selection" })
+
+map("n", "<leader>z", function()
+  Snacks.zen.zoom()
+  incline.toggle()
+end, { desc = "toggle zoom" })
+
+map("n", "<leader>Z", function()
+  Snacks.zen.zen()
+  incline.toggle()
+end, { desc = "toggle zen" })
 
 if util.tmux_present then
   map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Window left" })

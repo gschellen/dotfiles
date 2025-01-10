@@ -1,56 +1,25 @@
 return {
   {
     "folke/tokyonight.nvim",
+    lazy = false,
     opts = {
       transparent = true,
       styles = {
         sidebars = "transparent",
         floats = "transparent",
       },
+      style = "moon",
+      on_colors = function(colors)
+        colors.border = "#c099ff"
+      end,
+      -- keys = {
+      -- {
+      -- this does not work
+      --   "<Leader>tt",
+      --   "<Cmd>require('tokyonight').toggle_transparency()<CR>",
+      --   desc = "Toggle transparency",
+      -- },
+      -- },
     },
-    -- keys = {
-    -- {
-    -- this does not work
-    --   "<Leader>tt",
-    --   "<Cmd>require('tokyonight').toggle_transparency()<CR>",
-    --   desc = "Toggle transparency",
-    -- },
-    -- },
   },
-  -- {
-  --   "xiyaowong/transparent.nvim",
-  --   lazy = false,
-  --   config = {
-  --     extra_groups = {
-  --       "FloatBorder",
-  --       "LSPInfoBorder",
-  --       "NeoTreeNormal",
-  --       "NeoTreeNormalNC",
-  --       "NormalFloat",
-  --       "NotifyDEBUGBody",
-  --       "NotifyDEBUGBorder",
-  --       "NotifyERRORBody",
-  --       "NotifyERRORBorder",
-  --       "NotifyINFOBody",
-  --       "NotifyINFOBorder",
-  --       "NotifyTRACEBody",
-  --       "NotifyTRACEBorder",
-  --       "NotifyWARNBody",
-  --       "NotifyWARNBorder",
-  --       "TelescopeBorder",
-  --       "TelescopePreviewNormal",
-  --       "TelescopePromptNormal",
-  --       "TelescopeResultsNormal",
-  --       "WhichKeyFloat",
-  --     },
-  --     exclude_groups = {},
-  --   },
-  --   keys = {
-  --     {
-  --       "<Leader>tt",
-  --       "<Cmd>TransparentToggle<Cr>",
-  --       desc = "Toggle Transparency",
-  --     },
-  --   },
-  -- },
 }
