@@ -5,6 +5,8 @@
 local map = vim.keymap.set
 local util = require("config.util")
 local incline = require("incline")
+-- local tokyo = require("tokyonight")
+local tokyo = require("tokyonight.config")
 
 map("n", "<leader>ww", "<cmd>w<cr>", { desc = "save file" })
 map("i", "jk", "<ESC>l", { desc = "exit insert mode" })
@@ -19,6 +21,13 @@ map("n", "<leader>Z", function()
   Snacks.zen.zen()
   incline.toggle()
 end, { desc = "toggle zen" })
+
+map("n", "<leader>tt", function()
+  local cat = require("catppuccin")
+  cat.options.transparent_background = not cat.options.transparent_background
+  cat.compile()
+  vim.cmd.colorscheme(vim.g.colors_name)
+end, { desc = "toggle tranparency" })
 
 if util.tmux_present then
   map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Window left" })

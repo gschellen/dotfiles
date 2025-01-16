@@ -11,6 +11,7 @@ return {
         go = { "gofmt", "goimports" },
         c = { "clang_format" },
         cpp = { "clang_format" },
+        json = { "fixjson" },
       },
       formatters = {
         clang_format = {
