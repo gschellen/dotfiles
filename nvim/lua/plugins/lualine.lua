@@ -13,6 +13,18 @@ return {
         maxcount = 999,
         timeout = 500,
       })
+      table.insert(opts.sections.lualine_x, {
+        function()
+          local util = require("config.util")
+          local count = util.count_modified_buffers()
+          if count > 0 then
+            return string.format("%d UB", count)
+          else
+            return ""
+          end
+        end,
+        color = { fg = "orange" },
+      })
     end,
   },
 }
