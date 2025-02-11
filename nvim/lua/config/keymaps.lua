@@ -5,12 +5,14 @@
 local map = vim.keymap.set
 local util = require("config.util")
 local incline = require("incline")
--- local tokyo = require("tokyonight")
-local tokyo = require("tokyonight.config")
 
 map("n", "<leader>ww", "<cmd>w<cr>", { desc = "save file" })
 map("i", "jk", "<ESC>l", { desc = "exit insert mode" })
 map("v", "/", "<ESC>/\\%V", { desc = "search within visual selection" })
+
+map("n", "<leader>dU", function()
+  require("dapui").toggle({ reset = true })
+end, { desc = "reset dap-ui layout" })
 
 map("n", "<leader>z", function()
   Snacks.zen.zoom()

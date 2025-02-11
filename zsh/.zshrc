@@ -118,5 +118,6 @@ PATH=/APP/bin:$PATH
 # alias ls="colorls" 
 # we always want to run tmux with UNICODE available tag
 alias tmux="tmux -u" 
+alias qq="exit" 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
