@@ -112,6 +112,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 PATH=/opt/nvim-linux64/bin:$PATH
+PATH=/opt/nvim-linux-x86_64/bin:$PATH
 PATH=~/bin:$PATH
 PATH=/APP/bin:$PATH
 
