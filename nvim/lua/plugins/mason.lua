@@ -8,6 +8,8 @@ return {
       "cmakelang",
       "cmakelint",
       "clang-format",
+      "csharpier",
+      "netcoredbg",
     },
   },
 }
